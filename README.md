@@ -31,3 +31,7 @@ Work Instructions
   https://github.com/caxlsx/caxlsx_rails
 
   https://github.com/prawnpdf/prawn
+
+To run this code go to http://localhost:3000/active_users
+
+to initialize server you can do bin/dev
