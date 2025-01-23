@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Active Users") do |sheet|
+  sheet.add_row ["First Name", "Last Name", "Status"]
+
+  @active_users.each do |user|
+    sheet.add_row [user.first_name, user.last_name, user.status]
+  end
+end

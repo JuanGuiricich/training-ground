@@ -1,0 +1,46 @@
+<div class="flex flex-col w-full text-white">
+  <div class="text-center text-2xl font-semibold mb-4 text-yellow-500">
+    Active Users
+  </div>
+  <div class="flex flex-col w-full">
+    <div class="w-full flex text-lg justify-start items-center mb-4">
+      <div data-controller="dropdown" class="relative">
+        <button
+          data-action="click->dropdown#toggle click@window->dropdown#hide"
+          class="bg-blue-500 text-yellow-500 border-[2px] border-yellow-500 px-4 py-2 rounded-lg"
+        >
+          Export
+        </button>
+
+        <div
+          data-dropdown-target="menu"
+          class="hidden absolute right-0 mt-2 bg-white border rounded-lg shadow-lg"
+        >
+          <div class="py-1">
+            <%= link_to "XLSX", active_users_path(format: :xlsx), class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            <%= link_to "PDF", active_users_path(format: :pdf), class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            <%= link_to "CSV", active_users_path(format: :csv), class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table-auto border-collapse border border-gray-200 w-full">
+      <thead>
+        <tr class="bg-blue-500">
+          <th class="border px-4 py-2">First Name</th>
+          <th class="border px-4 py-2">Last Name</th>
+          <th class="border px-4 py-2">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @active_users.each do |user| %>
+          <tr class="border hover:bg-yellow-500 hover:text-slate-800">
+            <td class="border px-4 py-2"><%= user.first_name %></td>
+            <td class="border px-4 py-2"><%= user.last_name %></td>
+            <td class="border px-4 py-2"><%= user.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
